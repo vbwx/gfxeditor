@@ -9,8 +9,11 @@ dist/build: $(wildcard src/gfxeditor/*.java) $(wildcard src/gfxeditor/*/*.java)
 dist/GfxEditor.jar: src/Manifest dist/build
 	jar cfm $@ $< res -C .tmp gfxeditor
 
+docs: $(wildcard src/gfxeditor/*.java) $(wildcard src/gfxeditor/*/*.java)
+	javadoc -d docs -sourcepath src -subpackages gfxeditor && touch docs
+
 .PHONY: all
-all: dist/GfxEditor.jar
+all: dist/GfxEditor.jar docs
 
 .PHONY: clean
 clean:
