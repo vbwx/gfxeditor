@@ -74,7 +74,7 @@ public final class DocumentWindow extends JFrame implements GraphicsListener
 		list.addListSelectionListener(ctrl);
 		list.addKeyListener(ctrl);
 		JPanel panel = new JPanel(new BorderLayout());
-		panel.add(new JLabel("Objects", SwingConstants.CENTER), BorderLayout.NORTH);
+		panel.add(new JLabel("Shapes", SwingConstants.CENTER), BorderLayout.NORTH);
 		panel.add(new JScrollPane(list), BorderLayout.CENTER);
 		panel.setMinimumSize(new Dimension(90, 200));
 		pane.setRightComponent(panel);
