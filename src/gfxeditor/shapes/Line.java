@@ -15,7 +15,7 @@ import java.awt.geom.Line2D;
  * It internally uses a <code>java.awt.geom.Line2D</code> object and
  * is automatically enumerated, starting at 1.
  *
- * @author Bernhard Waldbrunner
+ * @author vbwx
  * @version 1.0
  */
 public class Line extends Shape

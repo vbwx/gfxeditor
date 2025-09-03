@@ -15,10 +15,10 @@ import javax.swing.JPanel;
 // Stage 1
 /**
  * Displays the shape objects stored in the model.
- * 
+ *
  * Also sends all user-triggered events to the controller.
- * 
- * @author Bernhard Waldbrunner
+ *
+ * @author vbwx
  * @version 1.0
  * @see gfxeditor.Model
  */
@@ -26,7 +26,7 @@ import javax.swing.JPanel;
 public final class Canvas extends JPanel implements GraphicsListener
 {
 	private Model model;
-	
+
 	/**
 	 * The standard cursor for the select tool.
 	 */
@@ -35,12 +35,12 @@ public final class Canvas extends JPanel implements GraphicsListener
 	 * The standard cursor for any other tool (when creating shapes).
 	 */
 	final static Cursor EDIT_CURSOR;
-	
+
 	static {
 		SELECT_CURSOR = new Cursor(Cursor.DEFAULT_CURSOR);
 		EDIT_CURSOR   = new Cursor(Cursor.CROSSHAIR_CURSOR);
 	}
-	
+
 	/**
 	 * Constructs a canvas with white background.
 	 * Also registers the controller as <code>MouseListener</code>,
@@ -56,7 +56,7 @@ public final class Canvas extends JPanel implements GraphicsListener
 		addMouseMotionListener(ctrl);
 		addKeyListener(ctrl);
 	}
-	
+
 	/**
 	 * Paints all of the model's shapes with anti-aliasing.
 	 * @see gfxeditor.Shape#paint(Graphics2D)

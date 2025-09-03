@@ -29,7 +29,7 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
  * listen to changes in the model, i.e., the canvas and a <code>JList</code> of
  * drawing objects.
  *
- * @author Bernhard Waldbrunner
+ * @author vbwx
  * @version 1.0
  * @see Canvas
  */

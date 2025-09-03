@@ -7,17 +7,17 @@ import java.awt.Color;
 /**
  * This class simply takes a <code>Shape</code> as a prototype and
  * clones it.
- * 
+ *
  * In terms of usage, it is compatible to the factory method pattern.
- * 
+ *
  * @see gfxeditor.factory.ShapeFactory
- * @author Bernhard Waldbrunner
+ * @author vbwx
  * @version 1.0
  */
 public class ShapeTool
 {
 	private final Shape prototype;
-	
+
 	/**
 	 * Returns the name of this tool.
 	 * @return The simple class name of the prototype
@@ -26,7 +26,7 @@ public class ShapeTool
 	{
 		return prototype.getClass().getSimpleName();
 	}
-	
+
 	/**
 	 * Constructs a shape tool.
 	 * @param prototype The shape to be cloned
@@ -36,7 +36,7 @@ public class ShapeTool
 	{
 		this.prototype = prototype;
 	}
-	
+
 	/**
 	 * Creates a new shape based on the prototype and sets some of its properties.
 	 * @param x The horizontal position

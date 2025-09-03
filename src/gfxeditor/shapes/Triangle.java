@@ -18,7 +18,7 @@ import java.awt.Polygon;
  * It internally uses a <code>java.awt.Polygon</code> object and
  * is automatically enumerated, starting at 1.
  *
- * @author Bernhard Waldbrunner
+ * @author vbwx
  * @version 1.0
  */
 public class Triangle extends Shape

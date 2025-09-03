@@ -7,11 +7,11 @@ import java.util.EventObject;
 /**
  * This class represents an event that occurs when anything in the
  * model has changed.
- * 
+ *
  * <p><b>Note:</b> This also includes the (de)selection of a drawing object.
  * <br>The <code>Shape</code> object stored in this class is always required.
- * 
- * @author Bernhard Waldbrunner
+ *
+ * @author vbwx
  * @version 1.0
  * @see GraphicsListener
  */
@@ -19,7 +19,7 @@ import java.util.EventObject;
 public class GraphicsEvent extends EventObject
 {
 	private Shape shape;
-	
+
 	/**
 	 * Returns the changed shape.
 	 * @return The <code>Shape</code> object that has been changed,
@@ -27,7 +27,7 @@ public class GraphicsEvent extends EventObject
 	 * all shapes have been deselected.
 	 */
 	public Shape getShape () { return shape; }
-	
+
 	/**
 	 * Constructs a graphics event, storing the changed shape object.
 	 * @param source The model firing this event

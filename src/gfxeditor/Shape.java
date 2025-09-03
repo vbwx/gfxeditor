@@ -11,7 +11,7 @@ import java.awt.Point;
  * cloned by the prototypes.
  * The view representing the model only needs to take care of this abstract
  * base class.
- * 
+ *
  * <p><b>Note:</b> This abstract class does not store how the actual shape looks
  * like, i.e., you have to take care of that. Don't forget to use the properties
  * that are stored in this class, or, in case you don't need some of them,
@@ -21,8 +21,8 @@ import java.awt.Point;
  * object; if the size <i>or</i> the position (<code>x</code>,<code>y</code>) of
  * the <code>Shape</code> object is changed, its geometry object (stored in the
  * derived class) also needs to be updated.
- * 
- * @author Bernhard Waldbrunner
+ *
+ * @author vbwx
  * @version 1.0
  */
 public abstract class Shape implements Cloneable
@@ -63,7 +63,7 @@ public abstract class Shape implements Cloneable
 		this.y = y;
 		setSize(getWidth(), getHeight());
 	}
-	
+
 	/**
 	 * Sets the position of this shape.
 	 * This is equal to a call of <code>setX(int)</code> and <code>setY(int)</code>,
@@ -75,7 +75,7 @@ public abstract class Shape implements Cloneable
 		x = p.x; y = p.y;
 		setSize(getWidth(), getHeight());
 	}
-	
+
 	/**
 	 * Returns the fill color of this shape.
 	 * <p><b>Note:</b> You may want to override this method in a derived class.
@@ -131,9 +131,9 @@ public abstract class Shape implements Cloneable
 		borderColor = Color.BLACK;
 		borderWidth = 0;
 	}
-	
+
 	public abstract void accept (Visitor visitor);
-	
+
 	/**
 	 * Sets the width and height of this shape.
 	 * <p><b>Note:</b> This should be the method that creates the internal
@@ -143,26 +143,26 @@ public abstract class Shape implements Cloneable
 	 * @param height The new height of the shape, in pixels
 	 */
 	public abstract void setSize (int width, int height);
-	
+
 	/**
 	 * Returns the width of this shape.
 	 * @return The width of the shape
 	 */
 	public abstract int getWidth ();
-	
+
 	/**
 	 * Returns the height of this shape.
 	 * @return The height of the shape
 	 */
 	public abstract int getHeight ();
-	
+
 	/**
 	 * Sets this shape's properties to their default values.
 	 * <p><b>Note:</b> Preferably, this method only calls <code>setSize(int, int)</code>
 	 * with default values.
 	 */
 	public abstract void setToDefaults ();
-	
+
 	/**
 	 * Paints the actual shape using its internal geometric representation.
 	 * This is a delegate method for the application's canvas.
@@ -170,7 +170,7 @@ public abstract class Shape implements Cloneable
 	 * @see gfxeditor.app.Canvas#paintComponents(java.awt.Graphics)
 	 */
 	public abstract void paint (Graphics2D g);
-	
+
 	/**
 	 * Checks if a point is contained in this shape.
 	 * <p><b>Note:</b> This method should delegate the task to <code>contains(Point)</code>
@@ -179,7 +179,7 @@ public abstract class Shape implements Cloneable
 	 * @return <code>true</code> if the point is within the actual shape
 	 */
 	public abstract boolean contains (Point p);
-	
+
 	/**
 	 * Checks if the shape is not visible when <code>paint(Graphics2D)</code>
 	 * is called.
@@ -188,14 +188,14 @@ public abstract class Shape implements Cloneable
 	 * @return <code>true</code> if the actual shape is not visible when painted
 	 */
 	public abstract boolean isInvisible ();
-	
+
 	/**
 	 * Returns the internal number of this shape.
 	 * @return The internal number
 	 * @since 2.0
 	 */
 	public abstract int getNumber ();
-	
+
 	/**
 	 * Clones this shape, so that it can be used as a prototype.
 	 * @return A copy of the actual shape

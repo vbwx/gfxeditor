@@ -24,8 +24,8 @@ import javax.swing.event.ListDataListener;
  * Contains a list of shapes and
  * also serves as a data model for the <code>JList</code> used in
  * <code>DocumentWindow</code>.
- * 
- * @author Bernhard Waldbrunner
+ *
+ * @author vbwx
  * @version 2.0
  * @see gfxeditor.event.GraphicsEvent
  */
@@ -35,9 +35,9 @@ public class Model implements ListModel
 	private Set<ListDataListener> dataListeners;
 	private List<Shape> shapes;
 	private Shape selected, current;
-	
+
 	private static final byte ADDED = 1, DELETED = 2, CHANGED = 3, SELECTED = 4;
-	
+
 	/**
 	 * Returns the list of shapes.
 	 * @return An unmodifiable list of <code>Shape</code> objects
@@ -46,19 +46,19 @@ public class Model implements ListModel
 	{
 		return Collections.unmodifiableList(shapes);
 	}
-	
+
 	/**
 	 * Returns the currently selected shape.
 	 * @return The currently selected <code>Shape</code> object
 	 */
 	public Shape getSelected () { return selected; }
-	
+
 	/**
 	 * Returns the newly created shape.
 	 * @return The newly created <code>Shape</code> object
 	 */
 	public Shape getCurrent () { return current; }
-	
+
 	/**
 	 * Sets the currently selected shape.
 	 * @param s The selected <code>Shape</code> object, or <code>null</code>
@@ -73,7 +73,7 @@ public class Model implements ListModel
 		fireGraphicsEvent(selected, CHANGED);
 		fireGraphicsEvent(selected, SELECTED);
 	}
-	
+
 	/**
 	 * Constructs a Graphics Editor model.
 	 */
@@ -83,7 +83,7 @@ public class Model implements ListModel
 		dataListeners = new HashSet<ListDataListener>();
 		shapes = new LinkedList<Shape>();
 	}
-	
+
 	/**
 	 * Returns the registered graphics listeners.
 	 * @return An array of <code>GraphicsListener</code> objects
@@ -92,7 +92,7 @@ public class Model implements ListModel
 	{
 		return graphicsListeners.toArray(new GraphicsListener[] {});
 	}
-	
+
 	/**
 	 * Removes a graphics listener from this model.
 	 * @param l The <code>GraphicsListener</code> object to be removed
@@ -101,7 +101,7 @@ public class Model implements ListModel
 	{
 		if (l != null) graphicsListeners.remove(l);
 	}
-	
+
 	/**
 	 * Registers a graphics listener for this model.
 	 * @param l The <code>GraphicsListener</code> object to be registered
@@ -110,7 +110,7 @@ public class Model implements ListModel
 	{
 		if (l != null) graphicsListeners.add(l);
 	}
-	
+
 	private void fireGraphicsEvent (Shape s, byte cause)
 	{
 		GraphicsEvent e = new GraphicsEvent(this, s);
@@ -123,7 +123,7 @@ public class Model implements ListModel
 			}
 		}
 	}
-	
+
 	private void fireListDataEvent (int cause, int index)
 	{
 		ListDataEvent e = new ListDataEvent(this, cause, index, index);
@@ -135,7 +135,7 @@ public class Model implements ListModel
 			}
 		}
 	}
-	
+
 	/**
 	 * Adds a shape to this model.
 	 * Also fires a <code>GraphicsEvent</code> and a <code>ListDataEvent</code> to
@@ -150,7 +150,7 @@ public class Model implements ListModel
 		fireListDataEvent(ListDataEvent.INTERVAL_ADDED, shapes.size()-1);
 		fireGraphicsEvent(s, ADDED);
 	}
-	
+
 	/**
 	 * Sets the <code>current</code> property (newly created shape) to <code>null</code>.
 	 * May also assign default values to the current shape; deletes the newly created
@@ -170,7 +170,7 @@ public class Model implements ListModel
 			delete(current);
 		current = null;
 	}
-	
+
 	/**
 	 * Removes a shape from this model.
 	 * The <code>selected</code> property is only changed if the removed shape has been
@@ -190,7 +190,7 @@ public class Model implements ListModel
 		fireListDataEvent(ListDataEvent.INTERVAL_REMOVED, idx);
 		fireGraphicsEvent(s, DELETED);
 	}
-	
+
 	/**
 	 * Selects the shape at the given point, or sets the <code>selected</code> property to
 	 * <code>null</code> if there is no shape at this position.
@@ -219,7 +219,7 @@ public class Model implements ListModel
 		fireGraphicsEvent(selected, CHANGED);
 		fireGraphicsEvent(selected, SELECTED);
 	}
-	
+
 	/**
 	 * Resizes the <i>current</i> shape, so that it's no bigger than the
 	 * bounding rectangle specified by its position (<code>x</code>|<code>y</code>)
@@ -234,7 +234,7 @@ public class Model implements ListModel
 		current.setSize(p.x - current.getX(), p.y - current.getY());
 		fireGraphicsEvent(current, CHANGED);
 	}
-	
+
 	/**
 	 * Resizes the <i>selected</i> shape, so that it's no bigger than the
 	 * bounding rectangle specified by its position (<code>x</code>|<code>y</code>)
@@ -249,7 +249,7 @@ public class Model implements ListModel
 		selected.setSize(p.x - selected.getX(), p.y - selected.getY());
 		fireGraphicsEvent(selected, CHANGED);
 	}
-	
+
 	/**
 	 * Moves the <i>current</i> shape to the given point.
 	 * Also fires a <code>GraphicsEvent</code> to the registered views.
@@ -303,7 +303,7 @@ public class Model implements ListModel
 	{
 		return shapes.size();
 	}
-	
+
 	/**
 	 * Removes a list data listener from this model.
 	 * @param l The <code>ListDataListener</code> object to be removed
@@ -312,7 +312,7 @@ public class Model implements ListModel
 	{
 		if (l != null) dataListeners.remove(l);
 	}
-	
+
 	public void addNumberDecorators ()
 	{
 		ListIterator<Shape> li = shapes.listIterator();
@@ -323,7 +323,7 @@ public class Model implements ListModel
 		}
 		fireGraphicsEvent(null, CHANGED);
 	}
-	
+
 	public void removeNumberDecorators ()
 	{
 		ListIterator<Shape> li = shapes.listIterator();
@@ -334,7 +334,7 @@ public class Model implements ListModel
 		}
 		fireGraphicsEvent(null, CHANGED);
 	}
-	
+
 	private Shape addSelectionDecorator (Shape sel)
 	{
 		int idx = shapes.indexOf(sel);
@@ -345,7 +345,7 @@ public class Model implements ListModel
 		}
 		return sel;
 	}
-	
+
 	private Shape removeSelectionDecorator (Shape sel)
 	{
 		int idx = shapes.indexOf(sel);
@@ -355,7 +355,7 @@ public class Model implements ListModel
 		}
 		return null;
 	}
-	
+
 	public void animateForwards (int speed)
 	{
 		Visitor animator = new ForwardVisitor(speed);
@@ -363,7 +363,7 @@ public class Model implements ListModel
 			s.accept(animator);
 		fireGraphicsEvent(null, CHANGED);
 	}
-	
+
 	public void animateBackwards (int speed)
 	{
 		Visitor animator = new BackwardVisitor(speed);

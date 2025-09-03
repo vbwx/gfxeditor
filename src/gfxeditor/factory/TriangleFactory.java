@@ -7,9 +7,9 @@ import java.awt.Color;
 // Stage 3
 /**
  * This is the factory class used to instantiate <code>Triangle</code> objects.
- * 
+ *
  * @see gfxeditor.shapes.Triangle
- * @author Bernhard Waldbrunner
+ * @author vbwx
  * @version 1.0
  */
 public class TriangleFactory extends ShapeFactory
@@ -19,7 +19,7 @@ public class TriangleFactory extends ShapeFactory
 	 * @return "Triangle"
 	 */
 	public String getName () { return "Triangle"; }
-	
+
 	/**
 	 * Creates a new shape with the given properties.
 	 * @param x The horizontal position

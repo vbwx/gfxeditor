@@ -7,9 +7,9 @@ import java.awt.Color;
 // Stage 3
 /**
  * This is the factory class used to instantiate <code>Line</code> objects.
- * 
+ *
  * @see gfxeditor.shapes.Line
- * @author Bernhard Waldbrunner
+ * @author vbwx
  * @version 1.0
  */
 public class LineFactory extends ShapeFactory
@@ -19,7 +19,7 @@ public class LineFactory extends ShapeFactory
 	 * @return "Line"
 	 */
 	public String getName () { return "Line"; }
-	
+
 	/**
 	 * Creates a new shape with the given properties.
 	 * @param x The horizontal position

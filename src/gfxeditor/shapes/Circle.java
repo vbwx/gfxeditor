@@ -16,7 +16,7 @@ import java.awt.geom.Ellipse2D;
  * is automatically enumerated, starting at 1. The width and height of
  * this shape are always equal.
  *
- * @author Bernhard Waldbrunner
+ * @author vbwx
  * @version 1.0
  */
 public class Circle extends Shape

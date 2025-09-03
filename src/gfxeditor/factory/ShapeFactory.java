@@ -6,12 +6,12 @@ import java.awt.Color;
 // Stage 3
 /**
  * This is the abstract factory class used to instantiate <code>Shape</code> objects.
- * 
+ *
  * In terms of usage, it is compatible to the prototype pattern.
- * 
+ *
  * @see gfxeditor.Shape
  * @see gfxeditor.prototype.ShapeTool
- * @author Bernhard Waldbrunner
+ * @author vbwx
  * @version 1.0
  */
 public abstract class ShapeFactory
@@ -24,7 +24,7 @@ public abstract class ShapeFactory
 	 * @return The actual shape
 	 */
 	public abstract Shape createShape (int x, int y, Color c);
-	
+
 	/**
 	 * Returns the name of this factory.
 	 * @return The name of the shape factory

@@ -40,7 +40,7 @@ import javax.swing.event.ListSelectionListener;
  * generates the views and changes the model.
  *
  * @version 2.0
- * @author Bernhard Waldbrunner
+ * @author vbwx
  * @see gfxeditor.Model
  */
 public class Controller
